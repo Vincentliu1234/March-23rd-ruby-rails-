@@ -1,0 +1,14 @@
+<h1>contacts Us</h1>
+
+<%= form_tag "/contact" do %>
+  
+  <%= text_field_tag :full_name, "", placeholder: "Full Name" %>
+  <br>
+
+  <%= email_field_tag :email, "" ,placeholder: "Email" %> 
+  <br>
+  <%= text_area_tag :message, "" ,placeholder: "Your Message" %> 
+  <br>
+  <%= submit_tag :submit %>
+
+	<% end %>

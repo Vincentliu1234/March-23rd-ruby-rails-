@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+
+  # the as: :about defines a helper method that can be 
+  # used inside the views and controllers.
+  # So instead of having to manually type:
+  # link_to "About", "/about"
+  # you can do:
+  # link_to "About", about_path
+  get "/about" => "about#index", as: :about
+
+  get "/contact" => "contact#index", as: :contact
+  post "/contact" => "contact#create"
+  get "/welcome/:name" => "welcome#show", as: :welcome
+  #if this route is put after the one: get "/welcome/:name"
+  # you will never end up using the route. Simple because
+  # the one wiht the :name will match before this one
+
+  root "welcome#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
